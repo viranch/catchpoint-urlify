@@ -1,0 +1,14 @@
+{
+   "manifest_version": 2,
+   "name": "Catchpoint URLify",
+   "version": "0.1",
+   "content_scripts": [ {
+      "matches": [ "https://portal.catchpoint.com/*" ],
+      "js": [ "sanitize.js" ],
+      "all_frames": true
+   } ],
+   "description": "Set hrefs on anchor tags",
+   "icons": {
+      "128": "CatchPoint.png"
+   }
+}

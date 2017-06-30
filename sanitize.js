@@ -36,6 +36,11 @@ var inject = '(' + function() {
                 }
                 var name = a.href.split("'")[1].replace('NameAction', 'ElementId');
                 a.href = prefix + theForm[name].value;
+            } else if (aclass.startsWith('more-lnk ')) {
+                var onclick = a.getAttribute('onclick');
+                if (onclick.indexOf("location.href ='") !== -1) {
+                    a.href = onclick.split("'")[1];
+                }
             }
 
             if (old_href != a.href) {

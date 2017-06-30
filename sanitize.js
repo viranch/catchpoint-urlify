@@ -42,10 +42,10 @@ var inject = '(' + function() {
                 // house cleaning
                 a.setAttribute('dontclick', a.getAttribute('onclick'));
                 a.removeAttribute('onclick');
-                console.log(a.href);
+                //console.log(a.href);
             }
         } catch (e) {
-            console.log(e);
+            //console.log(e);
         }
     }
 } + ')();';

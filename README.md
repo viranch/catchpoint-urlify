@@ -1,7 +1,7 @@
 Catchpoint URLify
 ============
 
-Chrome extension to replace onclick javascript actions from anchor tags and replace them with proper href URLs.
+Chrome extension to remove onclick javascript actions from anchor tags and replace them with proper href URLs on [Catchpoint](http://www.catchpoint.com/)'s customer portal. This enables the users to open most links in new tab, which is not possible in the vanilla portal.
 
 How to use
 ==========

@@ -64,7 +64,7 @@ var inject = '(' + function() {
                     }
                 }
 
-                if (old_href != a.href) {
+                if (old_href != a.getAttribute('href')) {
                     // house cleaning
                     a.setAttribute('dontclick', a.getAttribute('onclick'));
                     a.removeAttribute('onclick');

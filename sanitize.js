@@ -64,12 +64,6 @@ var inject = '(' + function() {
                     }
                 }
 
-                if (aclass == 'dbd-test-name') {
-                    console.log('----');
-                    console.log(old_href);
-                    console.log(a.href);
-                }
-
                 if (old_href != a.href) {
                     // house cleaning
                     a.setAttribute('dontclick', a.getAttribute('onclick'));

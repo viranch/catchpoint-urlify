@@ -46,6 +46,7 @@ var inject = '(' + function() {
                     var tokens = a.href.split(',');
                     tokens = tokens[tokens.length - 1].split("'")[1].split('\\');
                     var thing = tokens[tokens.length - 1];
+                    var new_href = null;
                     if (thing.startsWith('F')) {
                         new_href = "TestModuleList.aspx?folderId=" + thing.slice(1);
                     } else if (thing.startsWith('P')) {
@@ -53,6 +54,7 @@ var inject = '(' + function() {
                     } else if (thing.startsWith('sRoot')) {
                         new_href = "TestModuleList.aspx";
                     }
+                    if (new_href == null) continue;
                     a.href = new_href;
                     // top navbar
                     var bcrumb = unknown_anchors[a.innerText];

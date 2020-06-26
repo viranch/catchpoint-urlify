@@ -29,6 +29,7 @@ var inject = '(' + function() {
     })();
     var sanitize = function() {
         var anchors = document.getElementsByTagName('a');
+        var unknown_anchors = {};
         for (var i in anchors) {
             var a = anchors[i];
             try {
@@ -37,15 +38,24 @@ var inject = '(' + function() {
 
                 var aclass = a.getAttribute('class');
 
-                if (aclass.startsWith('TestStructure_0 nodeStyle test-tree-node TestStructure_1')) {
+                if (aclass == null) {
+                    // top navbar
+                    unknown_anchors[a.innerText] = a;
+                } else if (aclass.startsWith('TestStructure_0 nodeStyle test-tree-node TestStructure_1')) {
                     // sidebar
                     var tokens = a.href.split(',');
                     tokens = tokens[tokens.length - 1].split("'")[1].split('\\');
                     var thing = tokens[tokens.length - 1];
                     if (thing.startsWith('F')) {
-                        a.href = "TestModuleList.aspx?folderId=" + thing.slice(1);
+                        new_href = "TestModuleList.aspx?folderId=" + thing.slice(1);
                     } else if (thing.startsWith('P')) {
-                        a.href = "TestModuleList.aspx?productId=" + thing.slice(1);
+                        new_href = "TestModuleList.aspx?productId=" + thing.slice(1);
+                    }
+                    a.href = new_href;
+                    // top navbar
+                    var bcrumb = unknown_anchors[a.innerText];
+                    if (bcrumb != undefined) {
+                        bcrumb.href = new_href;
                     }
                 } else if (aclass.startsWith('name-lnk item-ico-lnk-')) {
                     // main view

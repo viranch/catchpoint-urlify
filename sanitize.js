@@ -50,6 +50,8 @@ var inject = '(' + function() {
                         new_href = "TestModuleList.aspx?folderId=" + thing.slice(1);
                     } else if (thing.startsWith('P')) {
                         new_href = "TestModuleList.aspx?productId=" + thing.slice(1);
+                    } else if (thing.startsWith('sRoot')) {
+                        new_href = "TestModuleList.aspx";
                     }
                     a.href = new_href;
                     // top navbar
